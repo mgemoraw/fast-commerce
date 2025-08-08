@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/index.css') }}">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, {{ name }}!</h1>
+        <p class="large">Welcome to our website.</p>
+        <p>Current date and time: {{ current_time }}</p>
+        <form action="{{ url_for('submit') }}" method="post" enctype="multipart/form-data">
+            <input class='input-field' type="text" name="username" placeholder="Type Username..." required>
+            <input class='input-field' type="text" name="password" placeholder="Type Password..." required>
+            <input class="input-field" type="file" name="file" />
+            <button class='btn btn-primary' type="submit">Submit</button>
+        </form>
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+        <p class="footer">Thank you for visiting!</p>
+    </div>
+</body>
+</html>
