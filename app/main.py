@@ -11,6 +11,8 @@ from fastapi.staticfiles import StaticFiles
 from items import routes as items_routes
 from books import book_routes
 from users import user_routes
+from chat import routes as chat_routes
+
 
 app = FastAPI()
 
@@ -53,4 +55,5 @@ async def user(dep: dict = Depends(dependency)):
 
 app.include_router(user_routes.router, prefix="/users", tags=["users"])
 app.include_router(items_routes.router, prefix="/items", tags=["items"])
-app.include_router(book_routes.router, prefix="/books", tags=["boks"])
+app.include_router(book_routes.router, prefix="/books", tags=["books"])
+app.include_router(chat_routes.router, prefix="/chat", tags=["chat"])
